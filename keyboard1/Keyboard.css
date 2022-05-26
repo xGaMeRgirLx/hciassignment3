@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Keyboard 2</title>
+    <title>Keyboard 1</title>
     <meta name="viewport" content="width=device-widt," initial-scale="1.0">
     <meta charset="utf-8">
     <meta lang="en">
-    <link rel="stylesheet" href="hci3/Keyboard.css">
+    <link rel="stylesheet" href="C:\GitHub\hciassignment3\hci3\Keyboard.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 </head>
 <body>
-    <h1>Keyboard 2</h1>
+    <h1>Keyboard 1</h1>
     <!--<form action="keyboardc2.html" method ="GET">
      <input type="use-input"  name="use-input" placeholder="Your Input to be typed here"> 
     <button type="subut">Submit</button>  
@@ -22,8 +22,8 @@
     <div id="char_container">
         <!-- <dialog open id="char_container" style ="position: absolute; top: 30px; left: 300px; width:100px"></dialog>  -->
         </div>
-   <!-- <p id="repetitions">Cycle: 0 out of 20</p>
-     this includes all the different keys -->
+    <p id="repetitions">Cycle: 0 out of 20</p>
+    <!-- this includes all the different keys -->
 <!--     <div class="keyboard">
         <div class="keyboard__keys">
             <button type="button" class="keyboard__key">1</button>
@@ -57,7 +57,7 @@
         
     </div> -->
 
-    <script src="hci3/Keyboard2.js">
+    <script src="Keyboard1.js">
     </script>
 
 

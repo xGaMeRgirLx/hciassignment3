@@ -22,7 +22,7 @@ this.elements.main = document.createElement("div");
 this.elements.keysContainer=document.createElement("div");
 
 //setup main elements
-this.elements.main.classList.add("keyboard","keyboard--hidden");
+this.elements.main.classList.add("keyboard","1keyboard--hidden");
 this.elements.keysContainer.classList.add("keyboard__keys");
 this.elements.keysContainer.appendChild(this._createKeys());
 // CAPSLOCK
@@ -38,7 +38,7 @@ document.querySelectorAll(".use-input").forEach(element =>{
     element.addEventListener("focus", ()=>{
         this.open(element.value, currentValue => {
             element.value = currentValue;
-    
+            console.log(Date.now());
         })
     });
 });
@@ -128,6 +128,7 @@ _createKeys(){
                 keyElement.addEventListener("click", ()=>{
                     this.properties.value += this.properties.capsLock ? key.toUpperCase():key.toLowerCase();
                     this._triggerEvent("oninput");
+
                 });
                 break;
             }    
@@ -139,6 +140,17 @@ _createKeys(){
         }
         });
     return fragment;
+},
+
+ randomCharGen(len = 1){
+ let charArray = "1234567890qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM";
+
+ let array = new Array();
+  for (let i=0; i<2; i++){
+      let arrayIndex = Math.floor(Math.random()*charArray.length());
+      array.push(charArray.charAt(arrayIndex));
+  }
+  console.log;
 },
 
 
@@ -166,6 +178,7 @@ open(initalValue, oninput, onclose){
     this.eventHandlers.oninput = oninput;
     this.eventHandlers.onclose = onclose;
     this.elements.main.classList.remove("keyboard--hidden");
+    
 },
 
 close(){
@@ -174,11 +187,21 @@ close(){
     this.eventHandlers.onclose = onclose;
     this.elements.main.classList.add("keyboard--hidden");
 }
+
+
 };
 
+ 
+
+
 window.addEventListener("DOMContentLoaded", function (){
+   
+   
+   
+   
     Keyboard.init();
-    /* Keyboard.open("dcode", function (currentValue){
+  
+    /* Keyboard.open("this", function (currentValue){
         console.log("value changed: " + currentValue);
     }, function (currentValue) {
         console.log("keyboard closed! finishing value: " + currentValue);
