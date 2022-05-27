@@ -12,8 +12,11 @@ eventHandlers: {
 
 properties: {
     value:"",
-    capsLock: false
+    capsLock: false,
+    experimentActive: false
 },
+
+
 
 init() {
 //create main elements
@@ -33,17 +36,31 @@ this.elements.main.appendChild(this.elements.keysContainer);
 document.body.appendChild(this.elements.main);
 
 //Automatically use keyboard for elements with .use-input
-
+timestamp = Date.now();
+//let times = [];
 document.querySelectorAll(".use-input").forEach(element =>{
     element.addEventListener("focus", ()=>{
         this.open(element.value, currentValue => {
             element.value = currentValue;
-            console.log(Date.now());
+            deltaTime = Date.now()-timestamp;
+            times.push(deltaTime);
+            this.printReactionTime();
         })
     });
 });
 
 },
+
+printReactionTime(){
+        
+       var reactionTime = (((deltaTime/times.length)/1000)%60);  
+       for(let i=0; i<times.length;i++){
+        console.log(reactionTime);
+        }
+       timeElement.innerHTML="Reaction time: "+ reactionTime + "s.";
+    },
+    
+    
 
 _createKeys(){
     const fragment = document.createDocumentFragment();
@@ -196,10 +213,15 @@ close(){
 
 window.addEventListener("DOMContentLoaded", function (){
    
+
+        Keyboard.init();
+        experimentActive=true;
+    
    
    
    
     Keyboard.init();
+    experimentActive = true;
   
     /* Keyboard.open("this", function (currentValue){
         console.log("value changed: " + currentValue);
