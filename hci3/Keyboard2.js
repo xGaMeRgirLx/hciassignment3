@@ -217,16 +217,5 @@ window.addEventListener("DOMContentLoaded", function (){
         Keyboard.init();
         experimentActive=true;
     
-   
-   
-   
-    Keyboard.init();
-    experimentActive = true;
-  
-    /* Keyboard.open("this", function (currentValue){
-        console.log("value changed: " + currentValue);
-    }, function (currentValue) {
-        console.log("keyboard closed! finishing value: " + currentValue);
-    });  */
     
 });
