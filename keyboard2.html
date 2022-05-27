@@ -13,22 +13,23 @@
     <h1>Keyboard 2</h1>
   
    <p id="instruction" style ="background-color:powderblue;" >Please navigate over below on-screen-keyboard to type in substring via mouse clicks:</p>
-    <textarea class="use-input" style ="position: absolute; top: 130px; right: 300px; width:300px" placeholder="Click me to start."></textarea> 
+   <p</p> 
+   <textarea class="use-input" style ="position: absolute; top: 130px; right: 300px; width:300px" placeholder="Click me to start."></textarea> 
     <div></div>
     <div id="char_container">
         </div>
-    <p id="time"></p>   
+    <p id="time">Reaction time: 0s.</p>   
    <!-- <p id="repetitions">Cycle: 0 out of 20</p>-->
     <script src="hci3/Keyboard2.js">
     </script>
 
-
     <script>
          
         //DOM
+        
         let repetitions = document.getElementById('repetitions');
         let instructionElement = document.getElementById('instruction');
-        document.getElementById('char_container').innerHTML=randomCharGen(15);
+       let randomChar= document.getElementById('char_container').innerHTML=randomCharGen(15);
         let timeElement = document.getElementById('time');
         // time at which the stimulus last appeared (in milliseconds, see Date.now())
          let timestamp;
@@ -36,7 +37,7 @@
          var deltaTime;
         
     function randomCharGen(characters_length){
-        var characters = "1234567890qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM. ,";
+        var characters = "1234567890qwertzuiopasdfghjklyxcvbnm. ,";
        var random_char ='';
         
          for (let i=0; i<characters_length; i++){
@@ -47,6 +48,6 @@
          return random_char;
        }
 
-    </script>
+    </script> 
 </body>
 </html>

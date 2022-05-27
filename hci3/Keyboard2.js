@@ -25,7 +25,8 @@ this.elements.main = document.createElement("div");
 this.elements.keysContainer=document.createElement("div");
 
 //setup main elements
-this.elements.main.classList.add("keyboard","1keyboard--hidden");
+// this.elements.main.classList.add("keyboard","1keyboard--hidden");
+this.elements.main.classList.add("keyboard");
 this.elements.keysContainer.classList.add("keyboard__keys");
 this.elements.keysContainer.appendChild(this._createKeys());
 // CAPSLOCK
@@ -37,12 +38,12 @@ document.body.appendChild(this.elements.main);
 
 //Automatically use keyboard for elements with .use-input
 timestamp = Date.now();
-//let times = [];
+
 document.querySelectorAll(".use-input").forEach(element =>{
     element.addEventListener("focus", ()=>{
         this.open(element.value, currentValue => {
             element.value = currentValue;
-            deltaTime = Date.now()-timestamp;
+            deltaTime = (Date.now()-timestamp);
             times.push(deltaTime);
             this.printReactionTime();
         })
@@ -51,13 +52,25 @@ document.querySelectorAll(".use-input").forEach(element =>{
 
 },
 
+randomCharGen(characters_length){
+    var characters = "1234567890qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM. ,";
+   var random_char ='';
+    
+     for (let i=0; i<characters_length; i++){
+         random_char += characters.charAt(Math.floor(Math.random()*characters.length))
+        
+     }
+     console.log(random_char);
+     return random_char;
+   },
+
 printReactionTime(){
         
-       var reactionTime = (((deltaTime/times.length)/1000)%60);  
+       var reactionTime = ((deltaTime))/times.length;  
        for(let i=0; i<times.length;i++){
         console.log(reactionTime);
         }
-       timeElement.innerHTML="Reaction time: "+ reactionTime + "s.";
+       timeElement.innerHTML="Reaction time: "+ reactionTime + " ms.";
     },
     
     
@@ -67,13 +80,13 @@ _createKeys(){
     const keyLayout = [
         "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
             "q", "w", "e", "r", "t", "z", "u", "i", "o", "p",
-            "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-            "done", "y", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-            "space"
+             "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
+              "y", "x", "c", "v", "b", "n", "m","space", ",", ".", "?","space",
+            
     ];
 
     //create HTML for icon
-    const createIconHTML = (icon_name)=>{
+    var createIconHTML = (icon_name)=>{
         return `<i class="material-icons">${icon_name}</i>`;
     };
 
@@ -120,12 +133,13 @@ _createKeys(){
                     break;
                     
                 case "space":
-                    keyElement.classList.add("keyboard__key--extra-wide");
+                    keyElement.classList.add("keyboard__key--wide");
                     keyElement.innerHTML = createIconHTML("space_bar");
     
                     keyElement.addEventListener("click", ()=>{
                     this.properties.value += " ";
                     this._triggerEvent("oninput");
+                    //this.getDistance()
                 });
                     break;    
 
@@ -158,18 +172,6 @@ _createKeys(){
         });
     return fragment;
 },
-
- randomCharGen(len = 1){
- let charArray = "1234567890qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM";
-
- let array = new Array();
-  for (let i=0; i<2; i++){
-      let arrayIndex = Math.floor(Math.random()*charArray.length());
-      array.push(charArray.charAt(arrayIndex));
-  }
-  console.log;
-},
-
 
 _triggerEvent(handlerName){
     //console.log("Event triggered! Event Name"+handlerName);
