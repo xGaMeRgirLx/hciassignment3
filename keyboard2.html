@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-widt," initial-scale="1.0">
     <meta charset="utf-8">
     <meta lang="en">
-    <link rel="stylesheet" href="hci3/Keyboard.css">
+    <link rel="stylesheet" href="hci3/Keyboard2.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 </head>
@@ -19,15 +19,12 @@
     <div id="char_container">
         </div>
     <p id="time">Reaction time: 0s.</p>   
-   <!-- <p id="repetitions">Cycle: 0 out of 20</p>-->
     <script src="hci3/Keyboard2.js">
     </script>
 
     <script>
          
         //DOM
-        
-        let repetitions = document.getElementById('repetitions');
         let instructionElement = document.getElementById('instruction');
        let randomChar= document.getElementById('char_container').innerHTML=randomCharGen(15);
         let timeElement = document.getElementById('time');

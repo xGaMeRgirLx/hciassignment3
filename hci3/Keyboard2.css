@@ -2,14 +2,13 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 100%; 
     width: 100%;
     padding: 5px 0;
     background: green;
-    box-shadow: 5px 10px 18px #888888;
-    
+    box-shadow: 5px 10px 18px #888888
+    user-select;
     transition: linear;
-    height: 300px
+    height: 200px
 }
 .keyboard--hidden {
     bottom: -100%;
@@ -29,11 +28,13 @@
     font-size: 1.05rem;
     outline:none;
     cursor: pointer;
+   
     display:inline-flex;
     align-items: center;
     justify-content: center;
     vertical-align: top;
     padding:0;
+    
     position: relative;
 }
 .keyboard__key:active{
@@ -44,8 +45,8 @@ background: rgba(255,200,255,012);
 width: 12%;
 }
 .keyboard__key--extra-wide {
-    width: 34%;
-    max-width: 300px;
+    width: 36%;
+    max-width: 500px;
 }
 .keyboard__key--activatable::after { 
     content: '';
@@ -79,7 +80,7 @@ width: 12%;
     float: left;
 
 }
-.instruction{
+.p{
     color: navy;
     text-indent: 30px;
     text-transform: uppercase;

@@ -11,64 +11,30 @@
 </head>
 <body>
     <h1>Keyboard 1</h1>
-    <!--<form action="keyboardc2.html" method ="GET">
-     <input type="use-input"  name="use-input" placeholder="Your Input to be typed here"> 
-    <button type="subut">Submit</button>  
-    </form>-->
   
    <p id="instruction" style ="background-color:powderblue;" >Please navigate over below on-screen-keyboard to type in substring via mouse clicks:</p>
-    <textarea class="use-input" style ="position: absolute; top: 130px; right: 300px; width:500px" placeholder="Click me to start."></textarea> 
+   <p</p> 
+   <textarea class="use-input" style ="position: absolute; top: 130px; right: 300px; width:300px" placeholder="Click me to start."></textarea> 
     <div></div>
     <div id="char_container">
-        <!-- <dialog open id="char_container" style ="position: absolute; top: 30px; left: 300px; width:100px"></dialog>  -->
         </div>
-    <p id="repetitions">Cycle: 0 out of 20</p>
-    <!-- this includes all the different keys -->
-<!--     <div class="keyboard">
-        <div class="keyboard__keys">
-            <button type="button" class="keyboard__key">1</button>
-            <button type="button" class="keyboard__key">2</button>
-            <button type="button" class="keyboard__key">3</button>
-            <button type="button" class="keyboard__key">4</button>
-            <button type="button" class="keyboard__key">5</button>
-            <button type="button" class="keyboard__key">6</button>
-            <button type="button" class="keyboard__key">7</button>
-            <button type="button" class="keyboard__key">8</button>
-            <button type="button" class="keyboard__key">9</button>
-            <button type="button" class="keyboard__key">0</button>
-            <button type="button" class="keyboard__key">?</button>
-
-            <button type="button" class="keyboard__key keyboard__key--wide">
-                <i class="material-icons">backspace</i>
-            </button>
-
-            <button type="button" class="keyboard__key keyboard__key--extra-wide">
-                <i class="material-icons">space_bar</i>
-            </button>
-            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--activatable">
-                <i class="material-icons">keyboard_capslock</i>
-            </button>
-
-            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--dark">
-                <i class="material-icons">check_circle</i>
-            </button>
-                
-        </div>
-        
-    </div> -->
-
-    <script src="keyboard1/Keyboard1.js">
+    <p id="time">Reaction time: 0s.</p>   
+    <script src="hci3/Keyboard1.js">
     </script>
 
-
     <script>
-        let repetitions = document.getElementById('repetitions');
+         
+        //DOM
         let instructionElement = document.getElementById('instruction');
-        document.getElementById('char_container').innerHTML=randomCharGen(15);
-
+       let randomChar= document.getElementById('char_container').innerHTML=randomCharGen(15);
+        let timeElement = document.getElementById('time');
+        // time at which the stimulus last appeared (in milliseconds, see Date.now())
+         let timestamp;
+         let times = [];
+         var deltaTime;
         
     function randomCharGen(characters_length){
-        var characters = "1234567890qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM";
+        var characters = "1234567890qwertzuiopasdfghjklyxcvbnm. ,";
        var random_char ='';
         
          for (let i=0; i<characters_length; i++){
@@ -79,6 +45,6 @@
          return random_char;
        }
 
-    </script>
+    </script> 
 </body>
 </html>
